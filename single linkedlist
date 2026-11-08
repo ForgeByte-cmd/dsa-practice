@@ -51,7 +51,7 @@ class LL
             insertFirst(value);
             return;
         }
-        if(index==size)
+        if(index==size-1)
         {
             insertLast(value);
             return;
