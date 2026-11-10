@@ -1,0 +1,79 @@
+class CLL
+{
+    private Node head;
+    private Node tail;
+    public CLL()
+    {
+        this.head=null;
+        this.tail=null;
+    }
+    private class Node
+    {
+        private int val;
+        private Node next;
+        public Node(int val)
+        {
+            this.val=val;
+        }
+    }
+    //Inserting node
+    public void insert(int val)
+    {
+        Node node=new Node(val);
+        if(head==null)
+        {
+            head=node;
+            tail=node;
+            tail.next=head;
+            return;
+        }
+        tail.next=node;
+        node.next=head;
+        tail=node;
+    }
+    //Display circular linkedlist
+    public void display()
+    {
+        Node node=head;
+
+            if(head!=null)
+            {
+                do{
+                    System.out.print(node.val+"->");
+                    node=node.next;
+                }while(node!=head);
+            System.out.println("HEAD");
+    }
+}
+    public void delete(int val)
+    {
+        Node node=head;
+        if(node==null)
+        {
+            return;
+        }
+        if(node.val==val)
+        {
+            head=head.next;
+            tail.next=head;
+            return;
+        }
+    }
+}
+public class sample
+{
+    public static void main(String[] args)
+    {
+        CLL list = new CLL();
+        list.insert(23);
+        list.insert(3);
+        list.insert(19);
+        list.insert(75);
+        System.out.print("Original List: ");
+        list.display();
+        System.out.println("\nDeleting 19 from list...");
+        list.delete(19);
+        System.out.print("Updated List: ");
+        list.display(); 
+    }
+}
